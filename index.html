@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+
+<html lang = "en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, autoRound=false"/>
+        <meta property="og:url" content="http://www.mindquieter.com"/>
+        <meta property="og:title" content="MindQuieter"/>
+        <meta property="og:description" content="Be careful not to hypnotize yourself: That might be part of Jenny's evil plan."/>
+        <meta property="og:image" content="http://www.mindquieter.com/mindquieter.jpg"/>
+        
+        <!-- http://developers.google.com/speed/libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- http://getbootstrap.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        
+        <!-- http://getbootstrap.com/ -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--link font awesome-->
+        <script src="https://use.fontawesome.com/18e509b803.js"></script>
+        
+        <!-- link app's own css -->
+        <link rel='stylesheet' type='text/css' href='stylesheet.css'>
+        
+        <title>MindQuieter</title>
+    </head>
+    <body>
+        
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div id="banner" class="col-md-12">MindQuieter</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div id= "c" class="col-md-5">
+                    <canvas id = "canvas" width = "500" height = "500">Your browser does not support the canvas element</canvas>
+                    <script type='text/javascript' src='scripts.js'></script>
+                    <div class="btn">
+                        <button type="button" name="animate" title="Animate"></button> 
+                        <button type="button" name="stop" title="Stop Animation"></button>
+                        <button type="button" name="reset" title="Reset" width="100" height="100"></button>
+                        <button type="button" class="hidden-xs" name="fullscreen" title="Full Screen" id="fullscreen"></button>
+                    </div>
+                    
+                </div>
+                <div class="col-md-5" id= "inputs">
+                    <div class="container">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav active" id="homeid"><a href="#home" data-toggle="tab" data-original-title="Home"></a></li>
+                            <li class="nav" id="pattern"><a href="#patterns" data-toggle="tab" data-original-title="Pattern Controls"></a></li>
+                            <li class="nav" id="color"><a href="#colors" data-toggle="tab" data-original-title="Color Controls"></a></li>
+                            <li class="nav" id="sound"><a href="#audio" data-toggle="tab" data-original-title="Audio"></a></li>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="home" class="tab active">
+                                <h3>Welcome to MindQuieter!</h3><br>Built as a learning experience for a new computer science student, MindQuieter 
+                                evolved from a simple question - "how do I write a program to draw a circle?" - into an interactive web application 
+                                with hypnotic animations.<br><br>
+                                
+                                Start by navigating the rest of the tabs, and use the slider bars to alter the pattern and colors on the canvas. 
+                                Also note the buttons below the canvas. At any time, you may animate the canvas, stop the animation, 
+                                reset to the original canvas, or switch to fullscreen (fullscreen not available on smartphones).<br><br>
+                                
+                                A screen larger than your smartphone is recommended. Enjoy, and thanks for giving it a try!
+                            </div>
+                            <div class="tab-pane fade" id="patterns">
+                                
+                                <label for="rad">Starting Radius</label>
+                                <input type="range" id="rad" min="1" max="199" value="100" step="0.01">
+                                <label for="rc">Radial Change</label>
+                                <input type="range" id="rc" min="-15" max="15" value="0" step="0.01">
+                                <label for="spacing">Spacing</label>
+                                <input type="range" id="spacing" min="1" max="21" value="11" step="0.01">
+                                <button data-toggle="collapse" id="p-info" data-target="#pattern-info">More Information</button>
+                                <div id="pattern-info" class="collapse">Use the sliders above to change the pattern
+                                on the MindQuieter canvas.<br><br><b>Starting Radius</b> controls the size of the circles closest to the 
+                                center of the canvas.<br><b>Radial Change</b> controls how much the circles change in size
+                                 as they get farther from the center of the canvas.<br><b>Spacing</b> controls how close together the
+                                 circles are.<br><br>Try them out, and see how the pattern changes!</div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="colors">
+                                 <div id="background-color">
+                                    <label for="background">Background</label>
+                                    <input type="radio" name="color-selector" id="background" checked="checked">
+                                    <label for="foreround">Foreground</label>
+                                    <input type="radio" name="color-selector" id="foreground">
+                                </div>
+                                <label class="red" for="br">Red</label>
+                                <input class="slider" type="range" id="br" min="0" max="255" value="0">
+                                <label class="green" for="bg">Green</label>
+                                <input class="slider" type="range" id="bg" min="0" max="255" value="0">
+                                <label class="blue" for="bb">Blue</label>
+                                <input class="slider" type="range" id="bb" min="0" max="255" value="0">
+                                
+                                <div id="variance">
+                                    <label class="red" for="rvariance">Red Variance</label>
+                                    <input type="range" id="rvariance" min="-30" max="30" value="0">
+                                    <label class="green" for="gvariance">Green Variance</label>
+                                    <input type="range" id="gvariance" min="-25" max="25" value="0">
+                                    <label class="blue" for="bvariance">Blue Variance</label>
+                                    <input type="range" id="bvariance" min="-25" max="25" value="0">
+                                </div>
+                                <button data-toggle="collapse" id="bc-info" data-target="#background-info">More Information</button>
+                                <div id="background-info" class="collapse">The buttons at the top toggle between the background color
+                                controls and the foreground color controls.<br><br>The <span class="red">Red</span>, <span class="green">Green</span>, 
+                                and <span class="blue">Blue</span> sliders change the RGB (red, green, blue) values for customized colors.
+                                The <span class="red">Red Variance</span>, <span class="green">Green Variance</span>, 
+                                 and <span class="blue">Blue Variance</span> sliders adjust the colors of the foreground so that they
+                                 change gradually from the center of the canvas to the perimeter of the canvas.
+                                 <br><br>If you are unfamiliar with RGB color values, you may find some of the results of the color 
+                                 controls surprising at first. You will catch on quickly just experimenting with them. If you would like a better understanding of
+                                 RGB color model or RGB color values, visit the pages linked below:<br>
+                                 <a class="link" href="https://en.wikipedia.org/wiki/RGB_color_model" target="_blank">https://en.wikipedia.org/wiki/RGB_color_model</a><br>
+                                 <a class="link" href="https://www.w3schools.com/colors/colors_rgb.asp" target="_blank">https://www.w3schools.com/colors/colors_rgb.asp</a></div>
+                            </div>
+                            <div class="tab-pane fade" id="audio">Audio options coming soon!<br><br>In the meantime, play your favorite 
+                            mind-quieting music while you use the app for maximum enjoyment.</div>
+                        </div>
+                    
+                <div class"col-md-1"></div>
+            </div>
+        </div>
+        
+    </body>
+</html>
